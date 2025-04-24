@@ -1,12 +1,17 @@
-import Link from 'next/link';
+import Link from "next/link";
+import styles from "../pages/Home.module.css";
 
 export default function RecipeCard({ recipe }: any) {
   return (
-    <Link href={`/recipe/${recipe.idMeal}`}>
-      <div className="border p-4 shadow-md hover:bg-gray-100">
-        <img src={recipe.strMealThumb} alt={recipe.strMeal} className="w-full h-48 object-cover" />
-        <h2 className="text-lg font-bold mt-2">{recipe.strMeal}</h2>
-      </div>
-    </Link>
+    <div className={styles.card}>
+      <img
+        src={recipe.strMealThumb}
+        alt={recipe.strMeal}
+        className={styles.cardImage}
+      />
+      <Link href={`/recipe/${recipe.idMeal}`} className={styles.cardTitle}>
+        {recipe.strMeal}
+      </Link>
+    </div>
   );
 }
